@@ -1,9 +1,9 @@
-# cursor2notes
+# Telas do Cursor
 
-Consulta local das conversas do agente do Cursor. O aplicativo é independent.
-Cada Folder aberto no Cursor corresponde a uma pasta deste computador. 
-A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. 
-Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
+Consulta local das conversas do agente do Cursor. O aplicativo é independente do KaptureAGDev: não sobe a API, não pede login e não grava nada no KaptureNOTES.
+
+Cada Folder aberto no Cursor corresponde a uma pasta deste computador. A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
+
 A conversa aberta tem três botões de exportação:
 
 - **HTML** — página única, para abrir no navegador ou imprimir
@@ -14,16 +14,20 @@ O arquivo exportado leva a conversa inteira. O corpo de arquivos gravados ou edi
 
 ## Instalação
 
+A pasta do aplicativo é autossuficiente. O leitor das conversas está em `cursor_agent_sessions.py`, ao lado de `app.py`, então a pasta pode ser copiada para qualquer lugar.
+
 É preciso ter Python 3.11 ou mais recente no PATH.
 
 Na pasta do aplicativo, crie o ambiente virtual, instale as dependências e inicie:
 
-cd c:\cursor2notes
+```powershell
+cd E:\tmp\cursor_telas
 python -m venv .venv
-.\.venv\Scripts\Activate
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
+```
 
-O `requirements.txt` pede o Streamlit, para a tela, e o fpdf2, para o PDF. O ambiente `.venv` fica só nesta pasta e não altera o Python do sistema.
+O `requirements.txt` pede o Streamlit, para a tela, e o fpdf2, para o PDF. O ambiente `.venv` fica só nesta pasta.
 
 O navegador abre em `http://localhost:8501`. Para encerrar, use Ctrl+C no terminal. Na próxima vez, basta ativar o `.venv` e repetir o `streamlit run`.
