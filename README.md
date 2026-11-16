@@ -1,6 +1,6 @@
 # Telas do Cursor
 
-Consulta local das conversas do agente do Cursor. O aplicativo é independente do KaptureAGDev: não sobe a API, não pede login e não grava nada no KaptureNOTES.
+Consulta local das conversas do agente do Cursor. O aplicativo é independente.
 
 Cada Folder aberto no Cursor corresponde a uma pasta deste computador. A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
 
@@ -21,7 +21,7 @@ A pasta do aplicativo é autossuficiente. O leitor das conversas está em `curso
 Na pasta do aplicativo, crie o ambiente virtual, instale as dependências e inicie:
 
 ```powershell
-cd E:\tmp\cursor_telas
+cd c:\cursor2notes
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
