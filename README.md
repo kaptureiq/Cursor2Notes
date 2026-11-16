@@ -1,2 +1,29 @@
-# Cursor2Notes
-Consulta local das conversas do agente do Cursor. Export para PDF, MD, HTML.
+# cursor2notes
+
+Consulta local das conversas do agente do Cursor. O aplicativo é independent.
+Cada Folder aberto no Cursor corresponde a uma pasta deste computador. 
+A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. 
+Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
+A conversa aberta tem três botões de exportação:
+
+- **HTML** — página única, para abrir no navegador ou imprimir
+- **Markdown** — texto para arquivar ou colar em outro editor
+- **PDF** — documento paginado, com acentos
+
+O arquivo exportado leva a conversa inteira. O corpo de arquivos gravados ou editados na conversa não entra: o registro fica só com o caminho.
+
+## Instalação
+
+É preciso ter Python 3.11 ou mais recente no PATH.
+
+Na pasta do aplicativo, crie o ambiente virtual, instale as dependências e inicie:
+
+cd c:\cursor2notes
+python -m venv .venv
+.\.venv\Scripts\Activate
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+
+O `requirements.txt` pede o Streamlit, para a tela, e o fpdf2, para o PDF. O ambiente `.venv` fica só nesta pasta e não altera o Python do sistema.
+
+O navegador abre em `http://localhost:8501`. Para encerrar, use Ctrl+C no terminal. Na próxima vez, basta ativar o `.venv` e repetir o `streamlit run`.
