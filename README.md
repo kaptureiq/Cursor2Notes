@@ -1,5 +1,7 @@
 # Telas do Cursor
 
+<img width="2172" height="724" alt="Cursor2Notes_ Exportação Inteligente" src="https://github.com/user-attachments/assets/f9b55099-8645-4d0d-bc1a-7270277d3a0e" />
+
 Consulta local das conversas do agente do Cursor. O aplicativo é independente.
 
 Cada Folder aberto no Cursor corresponde a uma pasta deste computador. A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
