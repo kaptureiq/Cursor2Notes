@@ -1,5 +1,7 @@
 # Cursor2Notes
 
+<img width="2160" height="619" alt="Cursor2Notes_ Exportação Inteligente" src="https://github.com/user-attachments/assets/0ba12bf0-ee9a-4f15-8d46-574c4a680078" />
+
 Consulta local das conversas do agente do Cursor. O aplicativo roda localmente: não sobe servidor, não pede login e não altera as conversas originais do Cursor.
 
 Cada Folder aberto no Cursor corresponde a uma pasta deste computador. A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
