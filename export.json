@@ -1,0 +1,5 @@
+{
+  "_comentario": "Cabeçalho e logo do PDF. 'logo' aceita caminho absoluto ou relativo a esta pasta (PNG ou JPG). Deixe vazio para não usar.",
+  "cabecalho": "",
+  "logo": ""
+}

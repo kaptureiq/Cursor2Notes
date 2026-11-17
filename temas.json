@@ -1,0 +1,1355 @@
+{
+  "_origem": "KaptureBOARD services/board_ui/src/themes/data/catalog.json",
+  "temas": [
+    {
+      "name": "dark_corporate",
+      "display_name": "Dark Corporate",
+      "description": "Escuro, denso, alto contraste — perfil ops/monitoramento",
+      "grupo": "oficiais",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#60a5fa",
+            "primary_dark": "#3b82f6",
+            "primary_light": "#93c5fd",
+            "secondary": "#fbbf24",
+            "success": "#4ade80",
+            "danger": "#f87171",
+            "warning": "#facc15",
+            "info": "#22d3ee",
+            "background": "#0f172a",
+            "surface": "#1e293b",
+            "text": "#f1f5f9",
+            "text_muted": "#94a3b8",
+            "border": "#334155",
+            "gray_50": "#0f172a",
+            "gray_100": "#1e293b",
+            "gray_200": "#334155",
+            "gray_300": "#475569",
+            "gray_400": "#64748b",
+            "gray_500": "#94a3b8",
+            "gray_600": "#cbd5e1",
+            "gray_700": "#e2e8f0",
+            "gray_800": "#f1f5f9",
+            "gray_900": "#f8fafc"
+          },
+          "typography": {
+            "font_family": "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            "base_size": "13px",
+            "size_xs": "11px",
+            "size_sm": "12px",
+            "size_lg": "14px",
+            "size_xl": "16px",
+            "size_2xl": "22px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "6px",
+            "density": "compact",
+            "xs": "3px",
+            "sm": "6px",
+            "md": "12px",
+            "lg": "18px",
+            "xl": "24px"
+          },
+          "radius": "3px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 3px rgba(0, 0, 0, 0.4)",
+            "md": "0 4px 8px rgba(0, 0, 0, 0.45)",
+            "lg": "0 8px 20px rgba(0, 0, 0, 0.5)"
+          },
+          "transition": "all 0.15s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "dark",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "lg"
+          }
+        }
+      }
+    },
+    {
+      "name": "kapture_sap",
+      "display_name": "Kapture SAP",
+      "description": "Visual corporativo padrão Kapture (estilo SAP/Protheus) — retrocompatível com style.css",
+      "grupo": "oficiais",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#1976d2",
+            "primary_dark": "#1565c0",
+            "primary_light": "#42a5f5",
+            "secondary": "#f57c00",
+            "success": "#388e3c",
+            "danger": "#d32f2f",
+            "warning": "#fbc02d",
+            "info": "#0288d1",
+            "background": "#fafafa",
+            "surface": "#ffffff",
+            "text": "#212121",
+            "text_muted": "#757575",
+            "border": "#e0e0e0",
+            "gray_50": "#fafafa",
+            "gray_100": "#f5f5f5",
+            "gray_200": "#eeeeee",
+            "gray_300": "#e0e0e0",
+            "gray_400": "#bdbdbd",
+            "gray_500": "#9e9e9e",
+            "gray_600": "#757575",
+            "gray_700": "#616161",
+            "gray_800": "#424242",
+            "gray_900": "#212121"
+          },
+          "typography": {
+            "font_family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif",
+            "base_size": "14px",
+            "size_xs": "12px",
+            "size_sm": "13px",
+            "size_lg": "16px",
+            "size_xl": "18px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "8px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "4px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 3px rgba(0, 0, 0, 0.12)",
+            "md": "0 4px 6px rgba(0, 0, 0, 0.1)",
+            "lg": "0 8px 16px rgba(0, 0, 0, 0.15)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "modern_light",
+      "display_name": "Modern Light",
+      "description": "Claro, arejado, radius maior e densidade confortável — perfil produto/startup",
+      "grupo": "oficiais",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#0ea5e9",
+            "primary_dark": "#0284c7",
+            "primary_light": "#38bdf8",
+            "secondary": "#8b5cf6",
+            "success": "#10b981",
+            "danger": "#ef4444",
+            "warning": "#f59e0b",
+            "info": "#06b6d4",
+            "background": "#f8fafc",
+            "surface": "#ffffff",
+            "text": "#0f172a",
+            "text_muted": "#64748b",
+            "border": "#e2e8f0",
+            "gray_50": "#f8fafc",
+            "gray_100": "#f1f5f9",
+            "gray_200": "#e2e8f0",
+            "gray_300": "#cbd5e1",
+            "gray_400": "#94a3b8",
+            "gray_500": "#64748b",
+            "gray_600": "#475569",
+            "gray_700": "#334155",
+            "gray_800": "#1e293b",
+            "gray_900": "#0f172a"
+          },
+          "typography": {
+            "font_family": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            "base_size": "15px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "17px",
+            "size_xl": "20px",
+            "size_2xl": "26px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "8px",
+            "density": "comfortable",
+            "xs": "6px",
+            "sm": "10px",
+            "md": "18px",
+            "lg": "28px",
+            "xl": "36px"
+          },
+          "radius": "8px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 1px 2px rgba(15, 23, 42, 0.06)",
+            "md": "0 4px 12px rgba(15, 23, 42, 0.08)",
+            "lg": "0 12px 24px rgba(15, 23, 42, 0.12)"
+          },
+          "transition": "all 0.25s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "md"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_accessible_wcag",
+      "display_name": "Fintech Accessible WCAG AAA",
+      "description": "Tema fintech otimizado para máxima acessibilidade e conformidade WCAG AAA. Primary navy profundo com secondary contraste forte.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#003d82",
+            "primary_dark": "#002147",
+            "primary_light": "#0055a8",
+            "secondary": "#ff6600",
+            "success": "#006622",
+            "danger": "#cc0000",
+            "warning": "#ff9900",
+            "info": "#0066cc",
+            "background": "#ffffff",
+            "surface": "#f0f2f5",
+            "text": "#000000",
+            "text_muted": "#333333",
+            "border": "#0055a8",
+            "gray_50": "#fafafa",
+            "gray_100": "#f5f5f5",
+            "gray_200": "#e8e8e8",
+            "gray_300": "#d3d3d3",
+            "gray_400": "#999999",
+            "gray_500": "#666666",
+            "gray_600": "#555555",
+            "gray_700": "#333333",
+            "gray_800": "#1a1a1a",
+            "gray_900": "#000000"
+          },
+          "typography": {
+            "font_family": "'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif",
+            "base_size": "18px",
+            "size_xs": "14px",
+            "size_sm": "16px",
+            "size_lg": "20px",
+            "size_xl": "24px",
+            "size_2xl": "28px",
+            "heading_weight": 700
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "comfortable",
+            "xs": "6px",
+            "sm": "12px",
+            "md": "20px",
+            "lg": "28px",
+            "xl": "36px"
+          },
+          "radius": "4px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 2px 4px 0 rgba(0, 0, 0, 0.25)",
+            "md": "0 4px 8px -1px rgba(0, 0, 0, 0.3)",
+            "lg": "0 10px 20px -3px rgba(0, 0, 0, 0.35)"
+          },
+          "transition": "all 0.3s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "dark",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_blue_trust",
+      "display_name": "Fintech Blue Trust",
+      "description": "Tema fintech classic com primary azul-céu #2563eb, transmite confiabilidade e estabilidade. Para bancos digitais e plataformas de poupança.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#2563eb",
+            "primary_dark": "#1d4ed8",
+            "primary_light": "#3b82f6",
+            "secondary": "#7c3aed",
+            "success": "#059669",
+            "danger": "#dc2626",
+            "warning": "#f59e0b",
+            "info": "#06b6d4",
+            "background": "#ffffff",
+            "surface": "#eff6ff",
+            "text": "#0c2340",
+            "text_muted": "#475569",
+            "border": "#bfdbfe",
+            "gray_50": "#f9fafb",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Nunito Sans', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "6px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(37, 99, 235, 0.05)",
+            "md": "0 4px 6px -1px rgba(37, 99, 235, 0.1)",
+            "lg": "0 10px 15px -3px rgba(37, 99, 235, 0.1)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_dark_investor",
+      "display_name": "Fintech Dark Investor",
+      "description": "Tema escuro fintech para monitoramento investor-grade. Primary cyan luminoso sobre background #0f172a, ideal para trading e risk management.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#06b6d4",
+            "primary_dark": "#0891b2",
+            "primary_light": "#22d3ee",
+            "secondary": "#fbbf24",
+            "success": "#10b981",
+            "danger": "#ef4444",
+            "warning": "#fbbf24",
+            "info": "#3b82f6",
+            "background": "#0f172a",
+            "surface": "#1e293b",
+            "text": "#f1f5f9",
+            "text_muted": "#94a3b8",
+            "border": "#334155",
+            "gray_50": "#f8fafc",
+            "gray_100": "#f1f5f9",
+            "gray_200": "#e2e8f0",
+            "gray_300": "#cbd5e1",
+            "gray_400": "#94a3b8",
+            "gray_500": "#64748b",
+            "gray_600": "#475569",
+            "gray_700": "#334155",
+            "gray_800": "#1e293b",
+            "gray_900": "#0f172a"
+          },
+          "typography": {
+            "font_family": "'IBM Plex Mono', 'Courier New', monospace, system-ui",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "compact",
+            "xs": "2px",
+            "sm": "6px",
+            "md": "12px",
+            "lg": "18px",
+            "xl": "24px"
+          },
+          "radius": "4px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 2px 4px 0 rgba(0, 0, 0, 0.4)",
+            "md": "0 8px 16px -2px rgba(0, 0, 0, 0.5)",
+            "lg": "0 20px 25px -5px rgba(0, 0, 0, 0.6)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "dark",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_gold_luxury",
+      "display_name": "Fintech Gold Luxury",
+      "description": "Tema luxuoso fintech com primary azul escuro #1e3a8a e secondary ouro #d97706. Para plataformas de wealth management de alta gama.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#1e3a8a",
+            "primary_dark": "#1e40af",
+            "primary_light": "#3b82f6",
+            "secondary": "#d97706",
+            "success": "#059669",
+            "danger": "#dc2626",
+            "warning": "#f59e0b",
+            "info": "#0284c7",
+            "background": "#ffffff",
+            "surface": "#f8fafc",
+            "text": "#0f172a",
+            "text_muted": "#475569",
+            "border": "#cbd5e1",
+            "gray_50": "#f9fafb",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Garamond', 'Georgia', 'Segoe UI', system-ui, -apple-system, serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 700
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "comfortable",
+            "xs": "6px",
+            "sm": "12px",
+            "md": "20px",
+            "lg": "28px",
+            "xl": "36px"
+          },
+          "radius": "8px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 2px 4px 0 rgba(30, 58, 138, 0.08)",
+            "md": "0 6px 12px -1px rgba(30, 58, 138, 0.12)",
+            "lg": "0 15px 30px -3px rgba(30, 58, 138, 0.15)"
+          },
+          "transition": "all 0.3s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": false,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_gray_minimal",
+      "display_name": "Fintech Gray Minimal",
+      "description": "Tema minimalista fintech com primary cinza neutro #3f3f46, foco em dados. Ideal para dashboards analíticos e trading floors.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#3f3f46",
+            "primary_dark": "#27272a",
+            "primary_light": "#52525b",
+            "secondary": "#2563eb",
+            "success": "#22c55e",
+            "danger": "#f43f5e",
+            "warning": "#f97316",
+            "info": "#0284c7",
+            "background": "#ffffff",
+            "surface": "#fafafa",
+            "text": "#18181b",
+            "text_muted": "#6b7280",
+            "border": "#d4d4d8",
+            "gray_50": "#fafafa",
+            "gray_100": "#f4f4f5",
+            "gray_200": "#e4e4e7",
+            "gray_300": "#d4d4d8",
+            "gray_400": "#a1a1a6",
+            "gray_500": "#71717a",
+            "gray_600": "#52525b",
+            "gray_700": "#3f3f46",
+            "gray_800": "#27272a",
+            "gray_900": "#18181b"
+          },
+          "typography": {
+            "font_family": "'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 500
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "compact",
+            "xs": "2px",
+            "sm": "6px",
+            "md": "12px",
+            "lg": "18px",
+            "xl": "24px"
+          },
+          "radius": "4px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.04)",
+            "md": "0 4px 6px -1px rgba(0, 0, 0, 0.08)",
+            "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "ghost",
+            "sidebar_collapsible": false
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_green_secure",
+      "display_name": "Fintech Green Secure",
+      "description": "Tema fintech com primary verde-escuro #15803d, transmite segurança e conformidade. Ideal para compliance, regulatório e blockchain.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#15803d",
+            "primary_dark": "#15803d",
+            "primary_light": "#22c55e",
+            "secondary": "#0284c7",
+            "success": "#10b981",
+            "danger": "#e11d48",
+            "warning": "#eab308",
+            "info": "#06b6d4",
+            "background": "#ffffff",
+            "surface": "#f0fdf4",
+            "text": "#14532d",
+            "text_muted": "#4b7c59",
+            "border": "#bbf7d0",
+            "gray_50": "#f9fafb",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "6px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(21, 128, 61, 0.05)",
+            "md": "0 4px 6px -1px rgba(21, 128, 61, 0.1)",
+            "lg": "0 10px 15px -3px rgba(21, 128, 61, 0.1)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_high_contrast",
+      "display_name": "Fintech High Contrast",
+      "description": "Tema fintech com contraste máximo WCAG AAA para acessibilidade. Primary preto #000000, secondary amarelo-ouro #FFB81C.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#000000",
+            "primary_dark": "#000000",
+            "primary_light": "#333333",
+            "secondary": "#FFB81C",
+            "success": "#007f3f",
+            "danger": "#ff0000",
+            "warning": "#FFB81C",
+            "info": "#0066cc",
+            "background": "#ffffff",
+            "surface": "#f5f5f5",
+            "text": "#000000",
+            "text_muted": "#333333",
+            "border": "#000000",
+            "gray_50": "#ffffff",
+            "gray_100": "#f5f5f5",
+            "gray_200": "#e8e8e8",
+            "gray_300": "#d3d3d3",
+            "gray_400": "#999999",
+            "gray_500": "#666666",
+            "gray_600": "#555555",
+            "gray_700": "#333333",
+            "gray_800": "#1a1a1a",
+            "gray_900": "#000000"
+          },
+          "typography": {
+            "font_family": "'Arial', 'Helvetica', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 700
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "comfortable",
+            "xs": "6px",
+            "sm": "12px",
+            "md": "20px",
+            "lg": "28px",
+            "xl": "36px"
+          },
+          "radius": "4px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 3px 0 rgba(0, 0, 0, 0.3)",
+            "md": "0 4px 6px -1px rgba(0, 0, 0, 0.4)",
+            "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.5)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "dark",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_indigo_premium",
+      "display_name": "Fintech Indigo Premium",
+      "description": "Tema premium fintech com primary índigo #4f46e5, secondary ouro metálico. Visual sofisticado para wealth management e private banking.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#4f46e5",
+            "primary_dark": "#3730a3",
+            "primary_light": "#6366f1",
+            "secondary": "#d97706",
+            "success": "#10b981",
+            "danger": "#ef4444",
+            "warning": "#f59e0b",
+            "info": "#06b6d4",
+            "background": "#ffffff",
+            "surface": "#f5f3ff",
+            "text": "#1f2937",
+            "text_muted": "#6b7280",
+            "border": "#e5e7eb",
+            "gray_50": "#fafaf9",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 700
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "8px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 1px 3px 0 rgba(79, 70, 229, 0.08)",
+            "md": "0 4px 8px -1px rgba(79, 70, 229, 0.12)",
+            "lg": "0 10px 20px -3px rgba(79, 70, 229, 0.15)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_navy_classic",
+      "display_name": "Fintech Navy Classic",
+      "description": "Tema clássico fintech com primary navy profundo #1a365d, secundária ciano, visual corporativo e confiável. Ideal para plataformas de investimento e banking.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#1a365d",
+            "primary_dark": "#0f1f3a",
+            "primary_light": "#2d5a8e",
+            "secondary": "#0891b2",
+            "success": "#059669",
+            "danger": "#dc2626",
+            "warning": "#f59e0b",
+            "info": "#0284c7",
+            "background": "#ffffff",
+            "surface": "#f8fafc",
+            "text": "#1e293b",
+            "text_muted": "#64748b",
+            "border": "#cbd5e1",
+            "gray_50": "#f9fafb",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "6px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+            "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+            "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "fintech_teal_modern",
+      "display_name": "Fintech Teal Modern",
+      "description": "Tema moderno fintech com primary teal ciano #0d9488, visual tech-forward. Perfeito para fintechs digitais e neo-banks.",
+      "grupo": "fintech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#0d9488",
+            "primary_dark": "#0f766e",
+            "primary_light": "#14b8a6",
+            "secondary": "#8b5cf6",
+            "success": "#16a34a",
+            "danger": "#e11d48",
+            "warning": "#eab308",
+            "info": "#0ea5e9",
+            "background": "#ffffff",
+            "surface": "#f0fdfa",
+            "text": "#0f172a",
+            "text_muted": "#475569",
+            "border": "#ccfbf1",
+            "gray_50": "#fafaf9",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Outfit', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "comfortable",
+            "xs": "6px",
+            "sm": "12px",
+            "md": "20px",
+            "lg": "28px",
+            "xl": "36px"
+          },
+          "radius": "12px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(13, 148, 136, 0.06)",
+            "md": "0 4px 8px -1px rgba(13, 148, 136, 0.12)",
+            "lg": "0 12px 20px -3px rgba(13, 148, 136, 0.15)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": false,
+            "table_hover": true,
+            "button_style": "outline",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "geotech_agronomist_green",
+      "display_name": "GeoTech Agronomist Green",
+      "description": "Tema agrícola com primary verde natural #2d5016, cores de terra e vegetação. Ideal para análise de plantações, NDVIs e monitoramento de safras.",
+      "grupo": "geotech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#2d5016",
+            "primary_dark": "#1a3a0a",
+            "primary_light": "#4a7c2a",
+            "secondary": "#8b6f47",
+            "success": "#16a34a",
+            "danger": "#dc2626",
+            "warning": "#f59e0b",
+            "info": "#0284c7",
+            "background": "#ffffff",
+            "surface": "#f5faf0",
+            "text": "#1b2e0a",
+            "text_muted": "#4a5a3a",
+            "border": "#c4d98f",
+            "gray_50": "#fafaf9",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "8px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(45, 80, 22, 0.05)",
+            "md": "0 4px 8px -1px rgba(45, 80, 22, 0.1)",
+            "lg": "0 12px 20px -3px rgba(45, 80, 22, 0.12)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "geotech_precision_dark",
+      "display_name": "GeoTech Precision Dark",
+      "description": "Tema escuro para análise precisa de mapas agrícolas com background #0f172a, primary verde #10b981. Ideal para operações noturnas, dashboards de monitoramento contínuo.",
+      "grupo": "geotech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#10b981",
+            "primary_dark": "#059669",
+            "primary_light": "#34d399",
+            "secondary": "#f59e0b",
+            "success": "#10b981",
+            "danger": "#ef4444",
+            "warning": "#fbbf24",
+            "info": "#06b6d4",
+            "background": "#0f172a",
+            "surface": "#1e293b",
+            "text": "#f1f5f9",
+            "text_muted": "#94a3b8",
+            "border": "#334155",
+            "gray_50": "#f8fafc",
+            "gray_100": "#f1f5f9",
+            "gray_200": "#e2e8f0",
+            "gray_300": "#cbd5e1",
+            "gray_400": "#94a3b8",
+            "gray_500": "#64748b",
+            "gray_600": "#475569",
+            "gray_700": "#334155",
+            "gray_800": "#1e293b",
+            "gray_900": "#0f172a"
+          },
+          "typography": {
+            "font_family": "'Outfit', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "6px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 2px 4px 0 rgba(16, 185, 129, 0.15)",
+            "md": "0 8px 16px -2px rgba(16, 185, 129, 0.2)",
+            "lg": "0 20px 25px -5px rgba(16, 185, 129, 0.25)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "dark",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "geotech_satellite_thermal",
+      "display_name": "GeoTech Satellite Thermal",
+      "description": "Tema para análise térmica, índices espectrais e dados de satélite com primary laranja-quente #ea580c. Ideal para temperatura de solo, estresse hídrico e radiância.",
+      "grupo": "geotech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#ea580c",
+            "primary_dark": "#c2410c",
+            "primary_light": "#f97316",
+            "secondary": "#0369a1",
+            "success": "#059669",
+            "danger": "#dc2626",
+            "warning": "#d97706",
+            "info": "#0284c7",
+            "background": "#ffffff",
+            "surface": "#fef3c7",
+            "text": "#5a2a0a",
+            "text_muted": "#7c3a14",
+            "border": "#fed7aa",
+            "gray_50": "#fafaf9",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'IBM Plex Mono', 'Courier New', monospace, system-ui",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "compact",
+            "xs": "2px",
+            "sm": "6px",
+            "md": "12px",
+            "lg": "18px",
+            "xl": "24px"
+          },
+          "radius": "4px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(234, 88, 12, 0.08)",
+            "md": "0 4px 6px -1px rgba(234, 88, 12, 0.12)",
+            "lg": "0 10px 15px -3px rgba(234, 88, 12, 0.15)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "geotech_soil_mapping",
+      "display_name": "GeoTech Soil Mapping",
+      "description": "Tema para análise de solo com primary marrom-terra #8b6f47, tons de terra natural. Perfeito para soil type mapping, texture analysis e TIM.",
+      "grupo": "geotech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#8b6f47",
+            "primary_dark": "#6b5842",
+            "primary_light": "#a0895a",
+            "secondary": "#4a7c2a",
+            "success": "#059669",
+            "danger": "#dc2626",
+            "warning": "#f59e0b",
+            "info": "#0284c7",
+            "background": "#ffffff",
+            "surface": "#faf8f3",
+            "text": "#3e3226",
+            "text_muted": "#5d5245",
+            "border": "#d2c5b4",
+            "gray_50": "#fafaf9",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 500
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "normal",
+            "xs": "4px",
+            "sm": "8px",
+            "md": "16px",
+            "lg": "24px",
+            "xl": "32px"
+          },
+          "radius": "6px",
+          "shadow": "sm",
+          "shadows": {
+            "sm": "0 1px 2px 0 rgba(139, 111, 71, 0.06)",
+            "md": "0 4px 6px -1px rgba(139, 111, 71, 0.1)",
+            "lg": "0 10px 15px -3px rgba(139, 111, 71, 0.12)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": true,
+            "table_hover": true,
+            "button_style": "solid",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    },
+    {
+      "name": "geotech_water_irrigation",
+      "display_name": "GeoTech Water Irrigation",
+      "description": "Tema para monitoramento hídrico e irrigação com primary azul-água #0369a1, tons aquáticos. Ideal para gestão de água, pivô, sensores e hidrologia agrícola.",
+      "grupo": "geotech",
+      "theme_config": {
+        "tokens": {
+          "colors": {
+            "primary": "#0369a1",
+            "primary_dark": "#0c4a6e",
+            "primary_light": "#0284c7",
+            "secondary": "#2d5016",
+            "success": "#10b981",
+            "danger": "#dc2626",
+            "warning": "#f59e0b",
+            "info": "#06b6d4",
+            "background": "#ffffff",
+            "surface": "#f0f9ff",
+            "text": "#0c2340",
+            "text_muted": "#386dae",
+            "border": "#bae6fd",
+            "gray_50": "#fafaf9",
+            "gray_100": "#f3f4f6",
+            "gray_200": "#e5e7eb",
+            "gray_300": "#d1d5db",
+            "gray_400": "#9ca3af",
+            "gray_500": "#6b7280",
+            "gray_600": "#4b5563",
+            "gray_700": "#374151",
+            "gray_800": "#1f2937",
+            "gray_900": "#111827"
+          },
+          "typography": {
+            "font_family": "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif",
+            "base_size": "16px",
+            "size_xs": "12px",
+            "size_sm": "14px",
+            "size_lg": "18px",
+            "size_xl": "20px",
+            "size_2xl": "24px",
+            "heading_weight": 600
+          },
+          "spacing": {
+            "unit": "4px",
+            "density": "comfortable",
+            "xs": "6px",
+            "sm": "12px",
+            "md": "20px",
+            "lg": "28px",
+            "xl": "36px"
+          },
+          "radius": "8px",
+          "shadow": "md",
+          "shadows": {
+            "sm": "0 1px 3px 0 rgba(3, 105, 161, 0.06)",
+            "md": "0 4px 8px -1px rgba(3, 105, 161, 0.12)",
+            "lg": "0 12px 20px -3px rgba(3, 105, 161, 0.15)"
+          },
+          "transition": "all 0.2s ease"
+        },
+        "components": {
+          "django_fastapi": {
+            "navbar": "light",
+            "table_striped": false,
+            "table_hover": true,
+            "button_style": "outline",
+            "sidebar_collapsible": true
+          },
+          "react_vite": {
+            "shell": "sidebar_left",
+            "card_elevation": "sm"
+          }
+        }
+      }
+    }
+  ]
+}

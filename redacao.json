@@ -1,0 +1,5 @@
+{
+  "_comentario": "Regras próprias de redação. 'desativar' recebe nomes de regras embutidas (ver redacao.py). 'regras' aceita {nome, padrao (regex Python), substituicao}.",
+  "desativar": [],
+  "regras": []
+}

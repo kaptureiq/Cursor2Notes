@@ -40,7 +40,7 @@ class CursorSessionsError(Exception):
 
 
 def cursor_projects_root() -> Path:
-    raw = os.environ.get("KAPTURE_CURSOR_PROJECTS_ROOT", "").strip()
+    raw = os.environ.get("CURSOR2NOTES_PROJECTS_ROOT", "").strip()
     if raw:
         return Path(raw)
     return Path.home() / ".cursor" / "projects"
