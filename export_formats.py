@@ -2,9 +2,14 @@
 from __future__ import annotations
 
 import html
+import json
 import logging
 import re
 from pathlib import Path
+
+import redacao
+
+CONFIG_PDF = Path(__file__).with_name("export.json")
 
 logging.getLogger("fontTools").setLevel(logging.ERROR)
 
@@ -49,9 +54,11 @@ def file_stem(title: str, session_id: str) -> str:
     return f"{cleaned} ({short})"
 
 
-def to_markdown(detail: dict, folder: dict) -> str:
+def to_markdown(detail: dict, folder: dict, tags: list[str] | None = None, favorita: bool = False) -> str:
     session = detail.get("session") or {}
     lines = [
+        *_front_matter(session, folder, tags or [], favorita),
+        "",
         f"# {session.get('title') or '(sem pedido)'}",
         "",
         f"- Folder: {folder.get('label') or folder.get('slug') or ''}",
@@ -151,11 +158,21 @@ Atualizada: {html.escape(str(session.get("updated_at") or "—"))}</p>
 def to_pdf(detail: dict, folder: dict) -> bytes:
     from fpdf import FPDF
 
+    cfg = configuracao_pdf()
     regular, bold, mono = _fonts()
     session = detail.get("session") or {}
     title = session.get("title") or "(sem pedido)"
 
     class Document(FPDF):
+        def header(self):
+            if cfg["logo"]:
+                self.image(cfg["logo"], x=self.l_margin, y=8, h=10)
+            if cfg["cabecalho"]:
+                self.set_xy(self.l_margin, 9)
+                self.set_font("Body", "B", 8)
+                self.set_text_color(71, 85, 105)
+                self.cell(self.epw, 6, cfg["cabecalho"], align="R")
+
         def footer(self):
             self.set_y(-12)
             self.set_font("Body", size=8)
@@ -164,6 +181,8 @@ def to_pdf(detail: dict, folder: dict) -> bytes:
             self.cell(0, 8, f"{label}  ·  {self.page_no()}", align="R")
 
     pdf = Document(format="A4")
+    if cfg["cabecalho"] or cfg["logo"]:
+        pdf.set_top_margin(24)
     pdf.folder_label = str(folder.get("label") or folder.get("slug") or "")
     pdf.set_auto_page_break(auto=True, margin=16)
     pdf.add_font("Body", "", str(regular))
@@ -212,14 +231,21 @@ def to_pdf(detail: dict, folder: dict) -> bytes:
     return bytes(pdf.output())
 
 
-def build_download(detail: dict, folder: dict, fmt: str) -> tuple[bytes, str, str]:
+def build_download(
+    detail: dict,
+    folder: dict,
+    fmt: str,
+    tags: list[str] | None = None,
+    favorita: bool = False,
+) -> tuple[bytes, str, str]:
+    detail = redacao.redact_detail(detail, redacao.load_rules())
     session = detail.get("session") or {}
     stem = file_stem(str(session.get("title") or ""), str(session.get("id") or ""))
     kind = (fmt or "").lower()
     if kind == "html":
         return to_html(detail, folder).encode("utf-8"), f"{stem}.html", "text/html"
     if kind in {"md", "markdown"}:
-        return to_markdown(detail, folder).encode("utf-8"), f"{stem}.md", "text/markdown"
+        return to_markdown(detail, folder, tags, favorita).encode("utf-8"), f"{stem}.md", "text/markdown"
     if kind == "pdf":
         return to_pdf(detail, folder), f"{stem}.pdf", "application/pdf"
     raise ExportError("Formato de exportação desconhecido.")
@@ -229,6 +255,20 @@ def events_html(events: list[dict]) -> str:
     if not events:
         return "<p class=\"note\">Nenhum evento neste filtro.</p>"
     return "\n".join(_html_event(event) for event in events)
+
+
+def _front_matter(session: dict, folder: dict, tags: list[str], favorita: bool) -> list[str]:
+    campos = (
+        ("titulo", session.get("title") or ""),
+        ("sessao", session.get("id") or ""),
+        ("pasta", folder.get("label") or folder.get("slug") or ""),
+        ("iniciada", session.get("started_at") or ""),
+        ("atualizada", session.get("updated_at") or ""),
+        ("favorita", favorita),
+        ("tags", list(tags)),
+    )
+    # JSON é YAML válido, então os valores ficam escapados corretamente.
+    return ["---", *(f"{chave}: {json.dumps(valor, ensure_ascii=False)}" for chave, valor in campos), "---"]
 
 
 def _markdown_event(event: dict) -> list[str]:
@@ -310,6 +350,25 @@ def _pdf_color(kind: str | None) -> tuple[int, int, int]:
     if kind == "comment":
         return (51, 65, 85)
     return (100, 116, 139)
+
+
+def configuracao_pdf(caminho: Path = CONFIG_PDF) -> dict:
+    """Cabeçalho e logo do PDF, lidos de export.json. O logo pode ser caminho relativo."""
+    if not caminho.is_file():
+        return {"cabecalho": "", "logo": ""}
+    try:
+        dados = json.loads(caminho.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as erro:
+        raise ExportError(f"Não consegui ler {caminho.name}: {erro}") from erro
+    logo = str(dados.get("logo") or "").strip()
+    if logo:
+        arquivo = Path(logo)
+        if not arquivo.is_absolute():
+            arquivo = caminho.parent / arquivo
+        if not arquivo.is_file():
+            raise ExportError(f"Logo do PDF não encontrado: {arquivo}")
+        logo = str(arquivo)
+    return {"cabecalho": str(dados.get("cabecalho") or "").strip(), "logo": logo}
 
 
 def _fonts() -> tuple[Path, Path, Path]:

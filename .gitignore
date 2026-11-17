@@ -1,0 +1,24 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Segredos e configurações locais
+.env
+.streamlit/secrets.toml
+
+# Dados locais do app (tags, favoritos e registro de exportação)
+metadados.json
+metadados.json.tmp
+
+# Arquivos gerados e temporários
+*.zip
+*.log
+
+# Editores
+.vscode/
+.idea/

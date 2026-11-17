@@ -1,4 +1,4 @@
-"""Exportação local de uma conversa, sem Streamlit e sem o AGDev."""
+"""Exportação local de uma conversa, sem Streamlit."""
 from __future__ import annotations
 
 import unittest
@@ -22,13 +22,13 @@ DETAIL = {
             "tool": "Shell",
             "text": "Get-ChildItem E:\\dados\\" + ("X" * 400),
             "detail": "Listar dados",
-            "cwd": "E:\\Github\\KaptureCLIMA",
+            "cwd": "E:\\Github\\meu-projeto",
         },
-        {"seq": 3, "kind": "comment", "text": "Encontrei a view clima.v_janela_operacional."},
+        {"seq": 3, "kind": "comment", "text": "Encontrei a view exemplo.v_resumo."},
         {"seq": 4, "kind": "tool", "tool": "Read", "text": "services\\api\\views.py"},
     ],
 }
-FOLDER = {"slug": "e-Github-KaptureCLIMA", "label": "E:\\Github\\KaptureCLIMA", "sessions": 7}
+FOLDER = {"slug": "e-Github-meu-projeto", "label": "E:\\Github\\meu-projeto", "sessions": 7}
 
 
 class ExportFormatsTest(unittest.TestCase):
@@ -38,11 +38,10 @@ class ExportFormatsTest(unittest.TestCase):
     def test_markdown_quotes_the_request_and_indents_the_command(self):
         text = to_markdown(DETAIL, FOLDER)
         self.assertIn("# Avaliar <safra> do clima", text)
-        self.assertIn("E:\\Github\\KaptureCLIMA", text)
+        self.assertIn("E:\\Github\\meu-projeto", text)
         self.assertIn("> Liste os talhões<script>", text)
         self.assertIn("    Get-ChildItem E:\\dados", text)
         self.assertIn("## Comentário final", text)
-        self.assertNotIn("KaptureNOTES", text)
 
     def test_html_escapes_markup(self):
         text = to_html(DETAIL, FOLDER)
