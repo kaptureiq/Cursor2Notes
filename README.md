@@ -33,3 +33,5 @@ python -m streamlit run app.py
 O `requirements.txt` pede o Streamlit, para a tela, e o fpdf2, para o PDF. O ambiente `.venv` fica só nesta pasta.
 
 O navegador abre em `http://localhost:8501`. Para encerrar, use Ctrl+C no terminal. Na próxima vez, basta ativar o `.venv` e repetir o `streamlit run`.
+
+#cursor, #streamlit, #markdown, #pdf-export
