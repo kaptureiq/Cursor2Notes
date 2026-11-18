@@ -21,6 +21,8 @@ ESTILO_COMUM = """
 .ev header { display: flex; gap: 0.75rem; align-items: baseline; }
 .tag { font-size: 0.75rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--c2n-primary); }
 .ev.comment .tag { color: var(--c2n-text); }
+.ev.thinking .tag { color: var(--c2n-muted); }
+.ev.thinking p { font-style: italic; color: var(--c2n-muted); }
 .ev.tool .tag, .ev.subagent .tag { color: var(--c2n-muted); }
 time, .cwd, .detail, .note, .meta { color: var(--c2n-muted); }
 .cwd, .detail, time { font-size: 0.85rem; }

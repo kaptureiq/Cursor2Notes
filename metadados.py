@@ -1,6 +1,6 @@
 """Tags, favoritos e registro de exportações, guardados em `metadados.json`.
 
-O arquivo fica ao lado do app. As conversas do Cursor nunca são alteradas.
+O arquivo fica ao lado do app. As conversas de origem nunca são alteradas.
 """
 from __future__ import annotations
 

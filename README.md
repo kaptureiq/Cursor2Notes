@@ -1,8 +1,8 @@
 # Cursor2Notes
 
-Consulta local das conversas do agente do Cursor. O aplicativo roda localmente: não sobe servidor, não pede login e não altera as conversas originais do Cursor.
+Consulta local das conversas dos agentes do Cursor, Claude Code, Claude Desktop (Cowork), Claude, VS Code e Antigravity. O aplicativo roda localmente: não sobe servidor, não pede login e não altera as conversas originais.
 
-Cada Folder aberto no Cursor corresponde a uma pasta deste computador. A tela lista as conversas desse Folder, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
+Na barra lateral, escolha o aplicativo: **Cursor**, **Claude Code**, **Claude Desktop (Cowork)**, **Claude**, **VS Code** ou **Antigravity**. Cada pasta listada corresponde a um projeto deste computador. As pastas temporárias (worktrees e pastas temporárias do Windows) ficam escondidas por padrão nas origens que listam pastas de projeto. A tela lista as conversas dessa pasta, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
 
 A conversa aberta tem três botões de exportação:
 
@@ -16,18 +16,25 @@ Na barra lateral, escolha o idioma da interface e abra a página **Ficha técnic
 
 ## Organização e exportação
 
-- **Favoritas e tags:** marque uma conversa como favorita e atribua tags separadas por vírgula. Na barra lateral, filtre por favoritas ou por tag. Os dados ficam em `metadados.json`, ao lado do app, e as conversas do Cursor não são alteradas.
+- **Favoritas e tags:** marque uma conversa como favorita e atribua tags separadas por vírgula. Na barra lateral, filtre por favoritas ou por tag. Os dados ficam em `metadados.json`, ao lado do app, e as conversas de origem não são alteradas.
 - **Front matter no Markdown:** cada `.md` começa com título, sessão, pasta, datas, favorita e tags, para importar no Obsidian ou no Notion sem ajustes.
 - **Exportar pasta inteira:** na barra lateral, escolha os formatos e gere um ZIP com todas as conversas da pasta e um `indice.html`. Com "Só conversas novas ou alteradas", o ZIP leva apenas o que mudou desde a última exportação de cada formato.
 - **Cabeçalho e logo do PDF:** edite `export.json` com o texto do cabeçalho e o caminho de um logo PNG ou JPG (relativo a esta pasta ou absoluto).
 - **Redação de segredos:** antes de qualquer exportação, senhas, tokens, chaves e strings de conexão são trocados por `[REDIGIDO]`. Os padrões embutidos estão em `redacao.py`. Em `redacao.json` você pode adicionar regras próprias ou desativar regras embutidas pelo nome. A tela continua mostrando o texto original.
 
-Para o caminho das conversas, defina a variável `CURSOR2NOTES_PROJECTS_ROOT` se o Cursor não estiver na pasta padrão `~/.cursor/projects`.
+Para o caminho das conversas, defina a variável da origem quando ela não estiver no local padrão:
+
+- **Cursor:** `CURSOR2NOTES_PROJECTS_ROOT` (padrão `~/.cursor/projects`)
+- **Claude Code:** `CLAUDE2NOTES_PROJECTS_ROOT` (padrão `~/.claude/projects`)
+- **Claude Desktop (Cowork):** `CLAUDE_DESKTOP2NOTES_ROOT` (padrão `%APPDATA%\Claude\local-agent-mode-sessions`)
+- **Claude:** `CLAUDE_APP2NOTES_ROOT` (padrão `%APPDATA%\Claude\IndexedDB`)
+- **VS Code:** `VSCODE2NOTES_DB` (padrão `%APPDATA%\Code\User\globalStorage\github.copilot-chat\session-store.db`)
+- **Antigravity:** `ANTIGRAVITY2NOTES_ROOT` (padrão `~/.gemini/antigravity`)
 
 ## Aparência e idioma
 
 - **Temas:** 18 temas dos grupos Oficiais, Fintech e GeoTech, extraídos do KaptureBOARD e guardados em `temas.json`. O padrão é Kapture SAP. Escolha em **Aparência**, na barra lateral.
-- **Idiomas:** português (Brasil), inglês, espanhol, francês (França), francês (Canadá) e alemão. Os textos ficam em `i18n.py`. A troca vale para a interface; os arquivos exportados e as mensagens vindas da leitura do Cursor continuam em português.
+- **Idiomas:** português (Brasil), inglês, espanhol, francês (França), francês (Canadá) e alemão. Os textos ficam em `i18n.py`. A troca vale para a interface; os arquivos exportados e as mensagens lidas das conversas continuam em português.
 
 ## Testes
 
@@ -39,7 +46,7 @@ python -m unittest discover -p "test_*.py"
 
 ## Instalação
 
-A pasta do aplicativo é autossuficiente. O leitor das conversas está em `cursor_agent_sessions.py`, ao lado de `app.py`, então a pasta pode ser copiada para qualquer lugar.
+A pasta do aplicativo é autossuficiente. `reader.py` escolhe a origem e os leitores ficam ao lado de `app.py`, então a pasta pode ser copiada para qualquer lugar.
 
 É preciso ter Python 3.11 ou mais recente no PATH.
 

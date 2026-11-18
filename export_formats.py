@@ -19,6 +19,7 @@ LABELS = {
     "command": "Comando",
     "tool": "Ferramenta",
     "subagent": "Agente auxiliar",
+    "thinking": "Pensamento",
 }
 
 _INVALID_NAME = re.compile(r'[\\/:*?"<>|]+')
@@ -155,7 +156,44 @@ Atualizada: {html.escape(str(session.get("updated_at") or "—"))}</p>
 """
 
 
+_SUBSTITUTOS = {
+    "✅": "[OK]", "❌": "[ERRO]", "⚠": "[AVISO]", "🚫": "[BLOQUEADO]", "🐛": "[BUG]", "💡": "[DICA]", "📌": "[NOTA]",
+    "├": "+", "└": "+", "┌": "+", "┐": "+", "┘": "+", "┤": "+", "┬": "+", "┴": "+", "┼": "+",
+    "─": "-", "│": "|",
+}
+_IGNORADOS = "\ufe0e\ufe0f"
+
+
+def _pdf_texto(texto: str) -> str:
+    """Troca caracteres que a fonte do PDF não tem por equivalentes simples."""
+    saida = []
+    for c in texto:
+        if c in _IGNORADOS:
+            continue
+        if c in _SUBSTITUTOS:
+            saida.append(_SUBSTITUTOS[c])
+            continue
+        o = ord(c)
+        if o < 0x0250 or 0x2000 <= o <= 0x206F or c in "€™•…":
+            saida.append(c)
+        else:
+            saida.append("?")
+    return "".join(saida)
+
+
+def _pdf_seguro(valor):
+    if isinstance(valor, str):
+        return _pdf_texto(valor)
+    if isinstance(valor, list):
+        return [_pdf_seguro(item) for item in valor]
+    if isinstance(valor, dict):
+        return {chave: _pdf_seguro(item) for chave, item in valor.items()}
+    return valor
+
+
 def to_pdf(detail: dict, folder: dict) -> bytes:
+    detail = _pdf_seguro(detail)
+    folder = _pdf_seguro(folder)
     from fpdf import FPDF
 
     cfg = configuracao_pdf()

@@ -1,4 +1,4 @@
-"""Cursor2Notes — consulta local das conversas do Cursor.
+"""Cursor2Notes — consulta local das conversas de Cursor, Claude, VS Code e Antigravity.
 
 Uso, a partir desta pasta:
 
@@ -18,9 +18,11 @@ import temas
 from export_formats import ExportError, build_download, events_html
 from lote import montar_zip
 from metadados import MetadadosError
-from reader import sessions
+import reader
+from cursor_agent_sessions import CursorSessionsError
 
 TODAS = "(todas)"
+FONTES = ("cursor", "claude", "desktop", "claude_app", "vscode", "antigravity")
 
 st.set_page_config(
     page_title="Cursor2Notes",
@@ -66,25 +68,25 @@ def _botao_sair() -> None:
 
 
 @st.cache_data(show_spinner=False)
-def load_folders(include_temporary: bool) -> tuple[list[dict], str]:
-    payload = sessions.list_folders(include_temporary=include_temporary)
+def load_folders(fonte: str, include_temporary: bool) -> tuple[list[dict], str]:
+    payload = reader.fonte(fonte).list_folders(include_temporary=include_temporary)
     return payload.get("folders") or [], payload.get("note") or ""
 
 
 @st.cache_data(show_spinner=False)
-def load_session_list(slug: str) -> dict:
-    return sessions.list_sessions(slug)
+def load_session_list(fonte: str, slug: str) -> dict:
+    return reader.fonte(fonte).list_sessions(slug)
 
 
 @st.cache_data(show_spinner=False)
-def load_detail(slug: str, session_id: str, updated_at: str, full: bool) -> dict:
+def load_detail(fonte: str, slug: str, session_id: str, updated_at: str, full: bool) -> dict:
     del updated_at
-    return sessions.session_detail(slug, session_id, full=full)
+    return reader.fonte(fonte).session_detail(slug, session_id, full=full)
 
 
 @st.cache_data(show_spinner=False)
-def cached_download(slug: str, session_id: str, updated_at: str, label: str, fmt: str, tags: tuple, favorita: bool):
-    detail = load_detail(slug, session_id, updated_at, True)
+def cached_download(fonte: str, slug: str, session_id: str, updated_at: str, label: str, fmt: str, tags: tuple, favorita: bool):
+    detail = load_detail(fonte, slug, session_id, updated_at, True)
     return build_download(detail, {"slug": slug, "label": label}, fmt, list(tags), favorita)
 
 
@@ -96,6 +98,7 @@ def load_temas() -> list[dict]:
 def main() -> None:
     st.session_state.setdefault("tema", temas.TEMA_PADRAO)
     st.session_state.setdefault("idioma", i18n.PADRAO)
+    st.session_state.setdefault("fonte", FONTES[0])
     catalogo = temas.por_nome(load_temas())
     tema = catalogo.get(st.session_state["tema"]) or catalogo[temas.TEMA_PADRAO]
     st.markdown(f"<style>{temas.css(tema)}{temas.ESTILO_COMUM}</style>", unsafe_allow_html=True)
@@ -118,6 +121,12 @@ def main() -> None:
 
     with st.sidebar:
         st.header(T("folder.titulo"))
+        fonte = st.selectbox(
+            T("fonte.label"),
+            options=list(FONTES),
+            format_func=lambda codigo: T(f"fonte.{codigo}"),
+            key="fonte",
+        )
         query = st.text_input(T("folder.filtrar"), placeholder=T("folder.filtrar_placeholder"))
         include_temporary = st.checkbox(T("folder.temporarias"))
         if st.button(T("btn.atualizar"), use_container_width=True):
@@ -138,8 +147,8 @@ def main() -> None:
     st.caption(f"{T('app.ajuda')} {T('app.lista_ajuda')}")
 
     try:
-        folders, note = load_folders(include_temporary)
-    except sessions.CursorSessionsError as exc:
+        folders, note = load_folders(fonte, include_temporary)
+    except CursorSessionsError as exc:
         st.error(exc.detail)
         return
 
@@ -168,10 +177,10 @@ def main() -> None:
         st.session_state["folder_slug"] = slug
         st.session_state["session_id"] = ""
 
-    folder = next(item for item in shown if item["slug"] == slug)
+    folder = {**next(item for item in shown if item["slug"] == slug), "fonte": fonte}
     try:
-        payload = load_session_list(slug)
-    except sessions.CursorSessionsError as exc:
+        payload = load_session_list(fonte, slug)
+    except CursorSessionsError as exc:
         st.error(exc.detail)
         return
 
@@ -279,8 +288,8 @@ def _render_detail(folder: dict, found: list[dict]) -> None:
         return
 
     try:
-        detail = load_detail(folder["slug"], current["id"], current.get("updated_at") or "", False)
-    except sessions.CursorSessionsError as exc:
+        detail = load_detail(folder["fonte"], folder["slug"], current["id"], current.get("updated_at") or "", False)
+    except CursorSessionsError as exc:
         st.error(exc.detail)
         return
 
@@ -300,12 +309,13 @@ def _render_detail(folder: dict, found: list[dict]) -> None:
 
     view = st.radio(
         T("detalhe.filtro"),
-        options=("conversation", "user", "comment", "command"),
+        options=("conversation", "user", "comment", "command", "thinking"),
         format_func=lambda item: T({
             "conversation": "vista.conversa",
             "user": "vista.pedido",
             "comment": "vista.comentario",
             "command": "vista.comando",
+            "thinking": "vista.pensamento",
         }[item]),
         horizontal=True,
         label_visibility="collapsed",
@@ -331,6 +341,7 @@ def _export_bar(folder: dict, summary: dict) -> None:
             try:
                 with st.spinner(T("export.preparando")):
                     data, name, mime = cached_download(
+                        folder["fonte"],
                         folder["slug"],
                         summary["id"],
                         summary.get("updated_at") or "",
@@ -339,7 +350,7 @@ def _export_bar(folder: dict, summary: dict) -> None:
                         tuple(registro["tags"]),
                         registro["favorita"],
                     )
-            except sessions.CursorSessionsError as exc:
+            except CursorSessionsError as exc:
                 st.error(exc.detail)
                 return
             except ExportError as exc:
@@ -370,7 +381,7 @@ def _exportar_pasta(folder: dict, payload: dict) -> None:
             conversas = []
             with st.spinner(T("export.preparando_zip")):
                 for resumo in payload.get("sessions") or []:
-                    detalhe = load_detail(folder["slug"], resumo["id"], resumo.get("updated_at") or "", True)
+                    detalhe = load_detail(folder["fonte"], folder["slug"], resumo["id"], resumo.get("updated_at") or "", True)
                     conversas.append((resumo, detalhe))
                 conteudo, gravados = montar_zip(folder, conversas, formatos, metadados.carregar(), somente_novas)
             st.session_state["zip_pronto"] = {
