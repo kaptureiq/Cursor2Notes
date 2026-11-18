@@ -1,5 +1,7 @@
 # Cursor2Notes
 
+<img width="2160" height="619" alt="Cursor2Notes_ Exportação Inteligente" src="https://github.com/user-attachments/assets/0ba12bf0-ee9a-4f15-8d46-574c4a680078" />
+
 Consulta local das conversas dos agentes do Cursor, Claude Code, Claude Desktop (Cowork), Claude, VS Code e Antigravity. O aplicativo roda localmente: não sobe servidor, não pede login e não altera as conversas originais.
 
 Na barra lateral, escolha o aplicativo: **Cursor**, **Claude Code**, **Claude Desktop (Cowork)**, **Claude**, **VS Code** ou **Antigravity**. Cada pasta listada corresponde a um projeto deste computador. As pastas temporárias (worktrees e pastas temporárias do Windows) ficam escondidas por padrão nas origens que listam pastas de projeto. A tela lista as conversas dessa pasta, com o pedido, os comandos executados, os comentários e o comentário final. Dá para filtrar a pasta, buscar por pedido, comando ou comentário, e restringir a leitura a pedidos, comentários ou comandos.
